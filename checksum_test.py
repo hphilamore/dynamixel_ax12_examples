@@ -31,3 +31,38 @@ print(Checksum_120)
 print(Checksum_180)
 print(Checksum_240)
 print(Checksum_300)
+
+print(2.31//1)
+
+
+
+def angle_to_instruction(angle):
+
+	A = angle / 300 * 1024  # map to 10-bit number 
+
+	B = A/256               # seperate into 2 8 bit bytes by dividing by max value of 8 bit byte 
+
+	H = int(B // 1)         # decimal value of high byte, convert to intager
+	print(H)
+
+	L = B - H                     
+	print(L)
+	L = int(L * 256)        # decimal value of low byte
+
+	
+	H = hex(H)
+
+	L = hex(L)
+
+	return(H, L)
+
+
+a = angle_to_instruction(60)
+print(a)
+
+# TODO add hex strings to instruction packet to send to motor
+
+# TODO calculate checksum using instruction packet then send to motor  
+
+
+
